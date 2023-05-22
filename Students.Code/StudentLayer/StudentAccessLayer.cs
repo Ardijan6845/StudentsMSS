@@ -82,16 +82,16 @@ public class StudentAccessLayer
         return students;
     }
 
-    public static async Task SerializeXml()
+    public static async Task SerializeXml(string path)
     {
         // Schreibt die Daten als XML
-        await XmlHandler.WriteData();
+        await XmlHandler.WriteData(path);
     }
 
-    public static async Task SerializeJson()
+    public static async Task SerializeJson(string path)
     {
         // Schreibt die Daten als JSON
-        await JsonHandler.WriteData();
+        await JsonHandler.WriteData(path);
     }
 
 

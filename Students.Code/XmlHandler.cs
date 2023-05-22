@@ -8,7 +8,7 @@ namespace Students.Code
     public static class XmlHandler
     {
         // Methode zum Schreiben von Daten als XML
-        public static async Task WriteData()
+        public static async Task WriteData(string path)
         {
             // Ruft die Studentendaten asynchron ab
             var studentsxml = await StudentAccessLayer.GetStudentsAsync();
@@ -17,7 +17,7 @@ namespace Students.Code
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<StudentDto>));
 
             // Schreibt die Studentendaten als XML in die angegebene Datei
-            using (TextWriter writer = new StreamWriter(@"C:\Temp\SchuelerListe.xml"))
+            using (TextWriter writer = new StreamWriter(path))
             {
                 xmlSerializer.Serialize(writer, studentsxml);
             }

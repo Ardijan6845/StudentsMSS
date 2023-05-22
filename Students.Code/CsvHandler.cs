@@ -1,6 +1,5 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
-using System.Formats.Asn1;
 using System.Globalization;
 using System.Text;
 
@@ -8,7 +7,7 @@ namespace Students.Code;
 
 public static class CsvHandler
 {
-    private static string _csvPath = @"C:\Users\kaar\Downloads\SchuelerListe.csv";
+    public static string _csvPath;
 
     // Methode zum Abrufen von Daten aus einer CSV-Datei
     public static async Task<List<T>?> GetData<T>()
@@ -18,9 +17,6 @@ public static class CsvHandler
         {
             // Konfiguration für das CSV-Handling erstellen
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ";", Encoding = Encoding.UTF8 };
-
-
-
 
             // StreamReader und CsvReader verwenden, um die CSV-Datei zu lesen
             using StreamReader reader = new(_csvPath, Encoding.UTF8);
